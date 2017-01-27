@@ -54,9 +54,9 @@ namespace Moovies
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1226224284134249",
+               appSecret: "100f6da6c29d3f84973a06832b4ad03f");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
