@@ -1149,6 +1149,11 @@ h1.section-title:after{
 	padding-bottom: 50px;
 }
 
+#main {
+	padding-bottom: 50px;
+    padding-top: 75px;
+}
+
 #about h3,
 #about h4,
 #about h5,
