@@ -742,7 +742,6 @@ body {
 .video-content {
 	position: relative;
 	overflow: hidden;
-	max-height: 800px;
 	min-height: 800px;
 }
 

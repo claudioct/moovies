@@ -305,7 +305,7 @@ function centerContent()
    	   $('.play-btn').css('display', 'inline-block');
 	   $('.intro-info-wrapper').css('display', 'block');
   	   $('.media-btns').css('margin-top', '0px');
-	   $('.video-content .overlay').css('background', 'rgba(0,0,0,0.4) url(img/overlay-pat.png)');
+	   $('.video-content .overlay').css('background', 'rgba(0,0,0,0.4) url(../Content/Template/img/overlay-pat.png)');
 	   $('.video-container #player').css('display', 'none');
 	});
 
@@ -317,7 +317,7 @@ $(document).ready(function(){
    	   $('.play-btn').css('display', 'inline-block');
 	   $('.intro-info-wrapper').css('display', 'block');
   	   $('.media-btns').css('margin-top', '0px');
-	   $('.video-content .overlay').css('background', 'rgba(0,0,0,0.4) url(img/overlay-pat.png)');
+  	   $('.video-content .overlay').css('background', 'rgba(0,0,0,0.4) url(../Content/Template/img/overlay-pat.png)');
 	   $('.video-container #player').css('display', 'none');
 	   
  
