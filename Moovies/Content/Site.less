@@ -1,9 +1,23 @@
-﻿@mainColor: #888;
+﻿@baseScoreColor: #666;
 
-.foo {
-    width:100px;
+.score {
+    border: solid 1px lighten(@baseScoreColor, 25%);
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background: @baseScoreColor;
+    margin-left: 0px;
+    margin-right: 0px;
+
+    .name {
+    font-size:20px;
+    text-shadow:1px 1px 2px lighten(@baseScoreColor, 10%)e;
+    color: #bbb;
+    }
+
+    .date {
+        text-align:right;
+        font-size:13px;
+    }
 }
 
-.bar {
-    background: @mainColor;
-}
