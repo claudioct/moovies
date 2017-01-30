@@ -11,6 +11,7 @@ namespace Moovies.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Services;
+    using Data;
 
     public static class NinjectWebCommon 
     {
@@ -63,6 +64,10 @@ namespace Moovies.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IImdbDataService>().To<ImdbDataService>().InRequestScope();
+
+            kernel.Bind<MooviesBoardContext>().To<MooviesBoardContext>().InRequestScope();
+            kernel.Bind<IMooviesBoardRepository>().To<MooviesBoardRepository>().InRequestScope();
+
         }        
     }
 }

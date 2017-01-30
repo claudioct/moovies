@@ -234,6 +234,17 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SendController.cs" />
     <Compile Include="DataContract\ImdbData.cs" />
+    <Compile Include="Data\IMooviesBoardRepository.cs" />
+    <Compile Include="Data\LeaderboardResultsView.cs" />
+    <Compile Include="Data\LeaderboardRecord.cs" />
+    <Compile Include="Data\MooviesBoardContext.cs" />
+    <Compile Include="Data\MooviesBoardMigrationsConfiguration.cs" />
+    <Compile Include="Data\MooviesBoardRepository.cs" />
+    <Compile Include="Data\Queries.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Queries.resx</DependentUpon>
+    </Compile>
     <Compile Include="ErrorHandler\AiHandleErrorAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -394,6 +405,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Data\Query\" />
     <Folder Include="ImdbData\" />
     <Folder Include="Scripts\lib\" />
   </ItemGroup>
@@ -405,6 +417,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Queries.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Queries.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
