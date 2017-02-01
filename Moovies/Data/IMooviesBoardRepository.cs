@@ -11,5 +11,11 @@ namespace Moovies.Data
         IQueryable<LeaderboardRecord> GetLeaderboardRecords();
 
         LeaderboardRecord GetLeaderboardRecord(int leaderbordRecordId);
+
+        List<LeaderboardResultsView> GetLeaderboardView();
+
+        bool AddLeaderboard(LeaderboardRecord newLeaderbordRecord);
+
+        bool Save();
     }
 }

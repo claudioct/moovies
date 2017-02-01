@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Moovies.Data
 {
-    public class MooviesBoardMigrationsConfiguration : 
+    public class MooviesBoardMigrationsConfiguration :
         DbMigrationsConfiguration<MooviesBoardContext>
     {
 
@@ -25,7 +25,7 @@ namespace Moovies.Data
                 {
                     Created = DateTime.Now,
                     TotalTime = 60,
-                    UserId = 1
+                    UserId = Guid.NewGuid().ToString()
                 };
 
                 context.LeaderboardRecords.Add(leaderboard);
@@ -34,7 +34,7 @@ namespace Moovies.Data
                 {
                     Created = DateTime.Now,
                     TotalTime = 60,
-                    UserId = 2
+                    UserId = Guid.NewGuid().ToString()
                 };
 
                 context.LeaderboardRecords.Add(leaderboard2);
@@ -43,7 +43,7 @@ namespace Moovies.Data
                 {
                     Created = DateTime.Now,
                     TotalTime = 60,
-                    UserId = 3
+                    UserId = Guid.NewGuid().ToString()
                 };
 
                 context.LeaderboardRecords.Add(leaderboard3);
@@ -60,5 +60,6 @@ namespace Moovies.Data
             }
 #endif
         }
+
     }
 }

@@ -13,6 +13,33 @@ namespace Moovies.Data
             _ctx = ctx;
         }
 
+        public bool Save()
+        {
+            try
+            {
+                return _ctx.SaveChanges() > 0;
+            }
+            catch (Exception ex)
+            {
+                //TODO log this error
+                return false;
+            }
+        }
+
+        public bool AddLeaderboard(LeaderboardRecord newLeaderbordRecord)
+        {
+            try
+            {
+                _ctx.LeaderboardRecords.Add(newLeaderbordRecord);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //TODO log this error
+                return false;
+            }
+        }
+
         public LeaderboardRecord GetLeaderboardRecord(int leaderbordRecordId)
         {
             return _ctx.LeaderboardRecords.Where(l => l.Id == leaderbordRecordId).FirstOrDefault();
@@ -25,8 +52,9 @@ namespace Moovies.Data
 
         public List<LeaderboardResultsView> GetLeaderboardView()
         {
-            return null;
-            //var leaderboardView = _ctx.LeaderboardRecords.SqlQuery("Select * from Student").ToList<LeaderboardResultsView>();
+            string query = Queries.LeaderboardsView;
+            var leaderboardView = _ctx.Database.SqlQuery<LeaderboardResultsView>(query);
+            return leaderboardView.ToList();
         }
     }
 }

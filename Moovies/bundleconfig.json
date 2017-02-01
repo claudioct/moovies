@@ -4,5 +4,13 @@
     "inputFiles": [
       "Scripts/custom.js"
     ]
+  },
+  {
+    "outputFileName": "js/angular-bundle.js",
+    "inputFiles": [
+      "js/app.js",
+      "js/home-index-controller.js",
+      "js/mooviesboard-api.js"
+    ]
   }
 ]

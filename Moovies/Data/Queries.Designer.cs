@@ -59,5 +59,26 @@ namespace Moovies.Data {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT
+        ///  [ANU].[Email] UserEmail,
+        ///  [ANU].[UserName] UserName,
+        ///  [LR].[Id] LeaderboardRecordId,
+        ///  [LR].[UserId] ,
+        ///  [LR].[TotalTime] ,
+        ///  [LR].[Created] ,
+        ///  [LR].[TotalAwards] ,
+        ///  [LR].[FavoriteActress] ,
+        ///  [LR].[FavoriteActor] ,
+        ///  [LR].[FavoriteGenre]
+        ///FROM [dbo].[LeaderboardRecords] AS [LR]
+        ///INNER JOIN [dbo].[AspNetUsers] AS [ANU] ON [ANU].[Id] = [LR].[UserId].
+        /// </summary>
+        public static string LeaderboardsView {
+            get {
+                return ResourceManager.GetString("LeaderboardsView", resourceCulture);
+            }
+        }
     }
 }

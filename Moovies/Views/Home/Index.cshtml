@@ -3,36 +3,36 @@
     ViewBag.Title = "Moovies Board";
 }
 
-<div class="message-header">
+<div class="message-header" ng-controller="HomeIndexController">
+    {{boladao}}
     <h1>Moovies Board</h1>
-    <div class="text-center">        
-        <img src="~/Content/Images/rsz_1rsz_1cow.png" />
+    <div class="text-center">
+        <a href="@Url.Action("Index", "Send")"><img src="~/Content/Images/rsz_1rsz_1cow.png" /></a>
         <h2>Moo Me!</h2>
     </div>
+    <!-- Progress Bar -->
+    <div class="progress" ng-show="isBusy">
+        <div class="progress-bar" style="width: 60%;"  >
+            <span class="sr-only">50% Complete</span>
+        </div>
+    </div>
     <p class="lead"> Latests Scores...</p>
-</div>
-
-@* .scores>(.score.row>(.name.col-md-10>lorem5)+(.date.col-md-2>{Feb 12, 2017})+(.totalTime.col-md-12{3 days 5 hours}))*3 *@
-<div class="scores">
-    <div class="score row">
-        <div class="name col-md-10">Consectetur adipiscing elit fusce vel.</div>
-        <div class="date col-md-2">Feb 12, 2017</div>
-        <div class="totalTime col-md-12">3 days 5 hours</div>
-    </div>
-    <div class="score row">
-        <div class="name col-md-10">Consectetur adipiscing elit fusce vel.</div>
-        <div class="date col-md-2">Feb 12, 2017</div>
-        <div class="totalTime col-md-12">3 days 5 hours</div>
-    </div>
-    <div class="score row">
-        <div class="name col-md-10">Consectetur adipiscing elit fusce vel.</div>
-        <div class="date col-md-2">Feb 12, 2017</div>
-        <div class="totalTime col-md-12">3 days 5 hours</div>
+    @* .scores>(.score.row>(.name.col-md-10>lorem5)+(.date.col-md-2>{Feb 12, 2017})+(.totalTime.col-md-12{3 days 5 hours}))*3 *@
+    <div class="scores">
+        <div class="score row" ng-repeat="score in leaderboards">
+            <div class="name col-md-7">{{ score.userEmail }}</div>
+            <div class="date col-md-5">{{ score.created | date:'medium'}}</div>
+            <div class="totalTime col-md-6">
+                <span class="badge"><i class="fa fa-clock-o" aria-hidden="true"></i></span> Time: {{ score.totalTime | amDurationFormat : 'minute' }}                 
+            </div>
+            <div class="totalTime col-md-6">
+                <span class="badge"><i class="fa fa-trophy" aria-hidden="true"></i></span> Trophys: {{ score.totalAwards }}                                
+            </div>
+        </div>
     </div>
 </div>
 
-@foreach (var leaderboardRecord in Model)
-{
-    <div>@leaderboardRecord.UserId</div>
-    <div>@leaderboardRecord.TotalTime</div>
+@section Scripts{
+    <script src="~/js/home-index-controller.js"></script>
+    <script src="~/js/mooviesboard-api.js"></script>
 }
