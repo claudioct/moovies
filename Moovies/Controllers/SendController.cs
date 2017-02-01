@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -34,7 +35,11 @@ namespace Moovies.Controllers
                 var fileName = Path.GetFileName(file.FileName);
                 var path = Path.Combine(Server.MapPath("~/ImdbData/"), fileName);
                 //file.SaveAs(path);
-                var imdbData = _imdbDataService.Retrieve(file);
+                MemoryStream ms = (file.InputStream as MemoryStream);
+                string csv = Encoding.UTF8.GetString(ms.ToArray());
+
+
+                var imdbData = _imdbDataService.Retrieve(csv);
             }
 
             return RedirectToAction("UploadDocument");
