@@ -1,7 +1,9 @@
 ﻿(function () {
-    var baseUrl = "http://localhost:43738/api/v1/";
-
+    var baseUrl = "/api/v1/";
+    
     var mooviesBoardApi = function ($http, $log) {
+
+
 
         var getLeaderboardRecords = function () {
             return $http.get(baseUrl + "leaderboards")
@@ -12,7 +14,8 @@
         };
 
         return {
-            getLeaderboardRecords: getLeaderboardRecords
+            getLeaderboardRecords: getLeaderboardRecords,
+            leaderboards: []
         };
     };
 
