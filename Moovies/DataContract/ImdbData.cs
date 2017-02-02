@@ -11,6 +11,6 @@ namespace Moovies.DataContract
         public string FavoriteGenre { get; internal set; }
         public decimal TotalImdbRating { get; internal set; }
         public int TotalTime { get; internal set; }
-        public int TotalUserRating { get; internal set; }
+        public decimal TotalUserRating { get; internal set; }
     }
 }

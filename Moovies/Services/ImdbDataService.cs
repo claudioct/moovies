@@ -30,7 +30,7 @@ namespace Moovies.Services
                     totalUserRating = totalUserRating + movie.UserRating;
                     totalImdbRating = totalImdbRating + movie.ImdbRating;
                     totalTime = totalTime + movie.Runtime;
-                    favoriteDirector.AddOrUpdateCount(movie.Title);
+                    favoriteDirector.AddOrUpdateCount(movie.Directors);
                     
                     foreach (var genre in movie.Genres)
                     {
@@ -39,10 +39,10 @@ namespace Moovies.Services
                 }
 
                 imdbData.TotalTime = totalTime;
-                imdbData.TotalImdbRating = totalImdbRating;
-                imdbData.TotalUserRating = totalUserRating;
-                imdbData.FavoriteDirector = "tommy";
-                imdbData.FavoriteGenre = "war";
+                imdbData.TotalImdbRating = totalImdbRating / imdbMovieCsvCollection.Count;
+                imdbData.TotalUserRating = decimal.Round( Convert.ToDecimal(totalUserRating) / imdbMovieCsvCollection.Count, 1);
+                imdbData.FavoriteDirector = favoriteDirector.OrderByDescending(o => o.Value).First().Key;
+                imdbData.FavoriteGenre = favoriteGenre.OrderByDescending(o => o.Value).First().Key;
 
                 return imdbData;
             }
