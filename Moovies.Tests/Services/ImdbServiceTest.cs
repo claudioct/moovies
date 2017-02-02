@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moovies.Services;
 
-namespace Moovies.Tests
+namespace Moovies.Tests.Services
 {
     [TestClass]
     public class ImdbServiceTest
