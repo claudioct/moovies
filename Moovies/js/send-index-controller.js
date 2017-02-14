@@ -7,7 +7,7 @@
             $scope.upload($scope.files);
         });
         $scope.$watch('file', function () {
-            if ($scope.file != null) {
+            if ($scope.file !== null) {
                 $scope.files = [$scope.file];
             }
         });
@@ -32,6 +32,7 @@
                                 resp.config.data.file.name +
                                 ', Response: ' + JSON.stringify(resp.data) +
                                 '\n' + $scope.log;
+                                $scope.imdbData = resp.data;
                             });
                         }, null, function (evt) {
                             var progressPercentage = parseInt(100.0 *

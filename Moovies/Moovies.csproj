@@ -278,6 +278,28 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\cow.png" />
+    <Content Include="Content\Paper-Assets\css\animate.min.css" />
+    <Content Include="Content\Paper-Assets\css\bootstrap.min.css" />
+    <Content Include="Content\Paper-Assets\css\demo.css" />
+    <Content Include="Content\Paper-Assets\css\paper-dashboard.css" />
+    <Content Include="Content\Paper-Assets\css\themify-icons.css" />
+    <Content Include="Content\Paper-Assets\fonts\themify.svg" />
+    <Content Include="Content\Paper-Assets\img\apple-icon.png" />
+    <Content Include="Content\Paper-Assets\img\background.jpg" />
+    <Content Include="Content\Paper-Assets\img\faces\face-0.jpg" />
+    <Content Include="Content\Paper-Assets\img\faces\face-1.jpg" />
+    <Content Include="Content\Paper-Assets\img\faces\face-2.jpg" />
+    <Content Include="Content\Paper-Assets\img\faces\face-3.jpg" />
+    <Content Include="Content\Paper-Assets\img\favicon.png" />
+    <Content Include="Content\Paper-Assets\img\new_logo.png" />
+    <Content Include="Content\Paper-Assets\img\tim_80x80.png" />
+    <Content Include="Content\Paper-Assets\js\bootstrap-checkbox-radio.js" />
+    <Content Include="Content\Paper-Assets\js\bootstrap-notify.js" />
+    <Content Include="Content\Paper-Assets\js\bootstrap.min.js" />
+    <Content Include="Content\Paper-Assets\js\chartist.min.js" />
+    <Content Include="Content\Paper-Assets\js\demo.js" />
+    <Content Include="Content\Paper-Assets\js\jquery-1.10.2.js" />
+    <Content Include="Content\Paper-Assets\js\paper-dashboard.js" />
     <Content Include="Content\Site.css">
       <DependentUpon>Site.less</DependentUpon>
     </Content>
@@ -333,6 +355,45 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Content\Paper-Assets\.DS_Store" />
+    <Content Include="Content\Paper-Assets\css\.DS_Store" />
+    <Content Include="Content\Paper-Assets\css\paper-dashboard.css.map" />
+    <Content Include="Content\Paper-Assets\fonts\.DS_Store" />
+    <Content Include="Content\Paper-Assets\fonts\themify.eot" />
+    <Content Include="Content\Paper-Assets\fonts\themify.ttf" />
+    <Content Include="Content\Paper-Assets\fonts\themify.woff" />
+    <Content Include="Content\Paper-Assets\img\.DS_Store" />
+    <Content Include="Content\Paper-Assets\img\faces\.DS_Store" />
+    <Content Include="Content\Paper-Assets\js\.DS_Store" />
+    <Content Include="Content\Paper-Assets\sass\.DS_Store" />
+    <Content Include="Content\Paper-Assets\sass\paper-dashboard.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\mixins\_buttons.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\mixins\_cards.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\mixins\_chartist.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\mixins\_icons.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\mixins\_inputs.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\mixins\_labels.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\mixins\_navbars.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\mixins\_sidebar.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\mixins\_tabs.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\mixins\_transparency.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\mixins\_vendor-prefixes.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_alerts.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_buttons.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_cards.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_chartist.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_checkbox-radio.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_dropdown.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_footers.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_inputs.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_misc.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_mixins.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_navbars.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_responsive.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_sidebar-and-main-panel.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_tables.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_typography.scss" />
+    <Content Include="Content\Paper-Assets\sass\paper\_variables.scss" />
     <None Include="Content\Site.less" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -418,6 +479,7 @@
     <Content Include="Scripts\FileAPI.flash.swf" />
     <Content Include="Scripts\FileAPI.js" />
     <Content Include="Scripts\FileAPI.min.js" />
+    <Content Include="Scripts\humanize.min.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
     <Content Include="Scripts\i18n\angular-locale_af.js" />
