@@ -1,0 +1,76 @@
+﻿@model Moovies.DataContract.ImdbData
+
+@{
+    ViewBag.Title = "Results";
+}
+
+@*
+    public string FavoriteDirector { get; internal set; }
+    public string FavoriteGenre { get; internal set; }
+    public decimal TotalImdbRating { get; internal set; }
+    public int TotalTime { get; internal set; }
+    public decimal TotalUserRating { get; internal set; }
+
+*@
+
+<div class="col-lg-12 col-md-12" id="counters">
+    <h1>Hey, look what we discovered!</h1>
+    <div class="col-lg-12 col-md-12" >
+        <ul class="counters wp2 animated fadeInDown">
+            <li>
+                <span id="counter-1">@Model.TotalImdbRating</span>
+                <h5>Average IMDb rating</h5>
+            </li>
+
+            <li>
+                <span id="counter-2">@Model.TotalUserRating</span>
+                <h5>Average user rating</h5>
+            </li>
+
+        </ul>
+        <ul class="counters wp2 animated fadeInDown">
+            <li>
+                <span>@Model.FavoriteDirector</span>
+                <h5>Favorite Director</h5>
+            </li>
+
+            <li>
+                <span>@Model.FavoriteGenre</span>
+                <h5>Favorite Genre</h5>
+            </li>
+        </ul>
+        <ul class="counters wp2 animated fadeInDown">
+            <li>
+                <span id="counter-3">@Model.TotalTime</span>                
+                <h5>Minutes watching movies</h5>
+                <h6>(<span id="counter-4">@Model.TotalTime</span>)</h6>
+            </li>
+        </ul>
+    </div>
+    <div class="col-lg-12 col-md-12" >
+        <img src="~/Content/Images/rsz_1rsz_1cow.png" />
+    </div>
+    
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+</div>
+@section Scripts {
+
+    <script>
+        "use strict";
+        jQuery(document).ready(function ($) {
+
+            var time = moment.duration(@Model.TotalTime, "minutes").humanize()
+
+            $("#counter-4").empty().html(time);
+        });
+
+
+    </script>
+    }

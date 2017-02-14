@@ -1,5 +1,5 @@
 (function () {
-    var app = angular.module("mooviesBoardApp", ['angularMoment']);
+    var app = angular.module("mooviesBoardApp", ['angularMoment', 'ngFileUpload']);
 })();
 (function () {
     var app = angular.module("mooviesBoardApp");
@@ -22,7 +22,6 @@
             .then(function () {
                 $scope.isBusy = false;
             });
-        ;
     };
 
     app.controller("HomeIndexController", HomeIndexController);

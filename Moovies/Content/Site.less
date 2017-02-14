@@ -1,4 +1,5 @@
 ﻿@baseScoreColor: #666;
+@fontColor: #bbb;
 
 .score {
     border: solid 1px lighten(@baseScoreColor, 25%);
@@ -19,5 +20,31 @@
         text-align:right;
         font-size:13px;
     }
+}
+
+.drop-box {
+    background: @baseScoreColor;
+    margin: 0 auto;
+    padding: 0 auto;
+    border: 5px dashed #DDD;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    padding-top: 25px;
+    color: @fontColor;
+}
+
+.button {
+    -moz-appearance: button;
+    /* Firefox */
+    -webkit-appearance: button;
+    /* Safari and Chrome */
+    padding: 10px;
+    margin: 10px;
+    width: 70px;
+}
+
+.dragover {
+    border: 5px dashed blue;
 }
 

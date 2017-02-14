@@ -23,7 +23,13 @@ namespace Moovies.Controllers
         public ActionResult Index()
         {
             return View();
-        }        
+        }
+
+        // GET: Send file angular
+        public ActionResult IndexAngular()
+        {
+            return View();
+        }
 
         [Authorize]
         [HttpPost]
@@ -35,14 +41,25 @@ namespace Moovies.Controllers
                 var fileName = Path.GetFileName(file.FileName);
                 var path = Path.Combine(Server.MapPath("~/ImdbData/"), fileName);
                 //file.SaveAs(path);
-                MemoryStream ms = (file.InputStream as MemoryStream);
-                string csv = Encoding.UTF8.GetString(ms.ToArray());
+                //StreamReader stream = new StreamReader(Request.InputStream);
+                //string csv = stream.ReadToEnd();
+                //var imdbData = _imdbDataService.Retrieve(csv);
+                // Read bytes from http input stream
+                BinaryReader b = new BinaryReader(file.InputStream);
+                byte[] binData = b.ReadBytes(Convert.ToInt32(file.InputStream.Length));
 
-
+                string csv = System.Text.Encoding.UTF8.GetString(binData);
                 var imdbData = _imdbDataService.Retrieve(csv);
+                imdbData.TotalImdbRating = Decimal.Round(imdbData.TotalImdbRating, 1);
+                return View("Result", imdbData);
             }
 
             return RedirectToAction("UploadDocument");
         }        
+
+        public ActionResult Result()
+        {
+            return View("Result");
+        }
     }
 }

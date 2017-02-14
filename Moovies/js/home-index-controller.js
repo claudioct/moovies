@@ -19,7 +19,6 @@
             .then(function () {
                 $scope.isBusy = false;
             });
-        ;
     };
 
     app.controller("HomeIndexController", HomeIndexController);
