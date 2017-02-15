@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Moovies.DataContract;
 
 namespace Moovies.Data
 {
@@ -55,6 +56,33 @@ namespace Moovies.Data
             string query = Queries.LeaderboardsView;
             var leaderboardView = _ctx.Database.SqlQuery<LeaderboardResultsView>(query);
             return leaderboardView.ToList();
+        }
+
+        public bool AddLeaderboard(ImdbData imdbData)
+        {
+            try
+            {
+                LeaderboardRecord newRecord = new LeaderboardRecord()
+                {
+                    Created = DateTime.UtcNow,
+                    FavoriteActor = "",
+                    FavoriteActress = "",
+                    FavoriteGenre = imdbData.FavoriteGenre,
+                    TotalAwards = 0,
+                    TotalTime = imdbData.TotalTime,
+                    UserId = Guid.Empty.ToString(),
+                    AverageImdbScore = imdbData.TotalImdbRating,
+                    AverageUserScore = imdbData.TotalUserRating
+                };
+                _ctx.LeaderboardRecords.Add(newRecord);
+                _ctx.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //TODO log this error
+                return false;
+            }
         }
     }
 }

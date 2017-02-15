@@ -50,19 +50,7 @@ describe("home-index Tests->", function () {
 
         it("can load LeaderboardRecords", function () {
 
-            var response;
 
-            $httpBackend.when("GET", "/api/v1/leaderboards")
-                .respond(200, data);
-
-            mooviesBoardApi.getLeaderboardRecords()
-                .then(function (data) {
-                    response = data;
-                });
-
-            $httpBackend.flush();
-
-            expect(data).toEqual(response);
         });
     });
 });

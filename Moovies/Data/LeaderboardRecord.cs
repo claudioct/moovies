@@ -23,5 +23,7 @@ namespace Moovies.Data
         public string FavoriteGenre { get; set; }
 
         public DateTime Created { get; set; }
+        public decimal AverageImdbScore { get; internal set; }
+        public decimal AverageUserScore { get; internal set; }
     }
 }

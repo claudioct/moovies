@@ -4,11 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Moovies.DataContract;
 
 namespace Moovies.Tests.Fakes
 {
     class FakeMooviesBoardRepository : IMooviesBoardRepository
     {
+        public bool AddLeaderboard(ImdbData imdbData)
+        {
+            return true;
+        }
+
         public bool AddLeaderboard(LeaderboardRecord newLeaderbordRecord)
         {
             return true;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Moovies.DataContract;
 
 namespace Moovies.Data
 {
@@ -17,5 +18,6 @@ namespace Moovies.Data
         bool AddLeaderboard(LeaderboardRecord newLeaderbordRecord);
 
         bool Save();
+        bool AddLeaderboard(ImdbData imdbData);
     }
 }

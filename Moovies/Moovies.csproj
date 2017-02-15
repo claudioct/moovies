@@ -273,6 +273,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="android-chrome-192x192.png" />
+    <Content Include="android-chrome-512x512.png" />
+    <Content Include="apple-touch-icon.png" />
+    <Content Include="browserconfig.xml" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -347,6 +351,8 @@
     <Content Include="Content\Template\img\overlay-pat.png" />
     <Content Include="Content\Template\img\video-img.jpg" />
     <EmbeddedResource Include="Data\Query\LeaderboardsView.sql" />
+    <Content Include="favicon-16x16.png" />
+    <Content Include="favicon-32x32.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -422,10 +428,15 @@
       <DependentUpon>angular-bundle.js</DependentUpon>
     </Content>
     <Content Include="js\app.js" />
+    <Content Include="js\home-result-controller.js" />
     <Content Include="js\send-index-controller.js" />
     <Content Include="js\home-index-controller.js" />
     <Content Include="js\mooviesboard-api.js" />
     <Content Include="js\myapp.js" />
+    <Content Include="mstile-150x150.png" />
+    <Content Include="ngViews\main.html" />
+    <Content Include="ngViews\result.html" />
+    <Content Include="safari-pinned-tab.svg" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -469,6 +480,7 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular-moment.min.js.map" />
+    <Content Include="manifest.json" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1250,7 +1262,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\How.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -1280,7 +1292,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\how\" />
     <Folder Include="ImdbData\" />
+    <Folder Include="js\views\" />
     <Folder Include="Scripts\lib\" />
     <Folder Include="Uploads\" />
   </ItemGroup>

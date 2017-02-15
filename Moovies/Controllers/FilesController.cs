@@ -1,4 +1,5 @@
-﻿using Moovies.Extensions;
+﻿using Moovies.Data;
+using Moovies.Extensions;
 using Moovies.Models;
 using Moovies.Services;
 using System;
@@ -17,10 +18,12 @@ namespace Moovies.Controllers
     {
         private readonly string workingFolder = HttpRuntime.AppDomainAppPath + @"\Uploads";
         private IImdbDataService _imdbDataService;
+        private IMooviesBoardRepository _repository;
 
-        public FilesController(IImdbDataService imdbDataService)
+        public FilesController(IImdbDataService imdbDataService, IMooviesBoardRepository repository)
         {
             _imdbDataService = imdbDataService;
+            _repository = repository;
         }
 
         /// <summary>
@@ -48,6 +51,9 @@ namespace Moovies.Controllers
                     string csv = System.Text.Encoding.UTF8.GetString(bytes);
                     var imdbData = _imdbDataService.Retrieve(csv);
                     imdbData.TotalImdbRating = Decimal.Round(imdbData.TotalImdbRating, 1);
+
+                    _repository.AddLeaderboard(imdbData);
+
 
                     return Ok(imdbData);
                 }

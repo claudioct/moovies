@@ -28,14 +28,14 @@ namespace Moovies.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "This is a simple application made with angularJS / .Net to measure your IMDb data.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult How()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Just download you IMDd data and drop it at the cow.";
 
             return View();
         }
