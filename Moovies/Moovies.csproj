@@ -1249,7 +1249,6 @@
     <Content Include="Scripts\lib\video\jquery.mb.YTPlayer.js" />
     <Content Include="Scripts\lib\video\YTPlayer.css" />
     <Content Include="Scripts\lib\waypoints.min.js" />
-    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
