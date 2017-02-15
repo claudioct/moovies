@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using Moovies.Helper;
+using System.Globalization;
 
 namespace Moovies.Services
 {
@@ -70,7 +71,7 @@ namespace Moovies.Services
                     imdbMovieCsv.TitleType = csv.GetField<string>(6);
                     imdbMovieCsv.Directors = csv.GetField<string>(7);
                     imdbMovieCsv.UserRating = csv.GetField<int>(8);
-                    imdbMovieCsv.ImdbRating = Convert.ToDecimal(csv.GetField<string>(9))/10;
+                    imdbMovieCsv.ImdbRating = ConvertToDecimalWithCulture(csv.GetField<string>(9));
                     imdbMovieCsv.Runtime = csv.GetField<int>(10);
                     imdbMovieCsv.Year = csv.GetField<int>(11);
                     var genres = csv.GetField<string>(12).Split(',');
@@ -85,6 +86,12 @@ namespace Moovies.Services
 
                 return imdbMovieCsvCollection;
             }
+        }
+
+        private decimal ConvertToDecimalWithCulture(string value)
+        {
+            CultureInfo culture = new CultureInfo("en-US");
+            return Convert.ToDecimal(value, culture);
         }
     }
 }
