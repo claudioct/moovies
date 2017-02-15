@@ -1233,6 +1233,22 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lib\flipclock\flipclock.css" />
+    <Content Include="Scripts\lib\flipclock\flipclock.js" />
+    <Content Include="Scripts\lib\jquery.animateNumber.js" />
+    <Content Include="Scripts\lib\jquery.appear.js" />
+    <Content Include="Scripts\lib\magnific-popup\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\lib\magnific-popup\magnific-popup.css" />
+    <Content Include="Scripts\lib\owl-carousel\AjaxLoader.gif" />
+    <Content Include="Scripts\lib\owl-carousel\grabbing.png" />
+    <Content Include="Scripts\lib\owl-carousel\owl.carousel.css" />
+    <Content Include="Scripts\lib\owl-carousel\owl.carousel.js" />
+    <Content Include="Scripts\lib\owl-carousel\owl.carousel.min.js" />
+    <Content Include="Scripts\lib\owl-carousel\owl.theme.css" />
+    <Content Include="Scripts\lib\owl-carousel\owl.transitions.css" />
+    <Content Include="Scripts\lib\video\jquery.mb.YTPlayer.js" />
+    <Content Include="Scripts\lib\video\YTPlayer.css" />
+    <Content Include="Scripts\lib\waypoints.min.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\moment-with-locales.js" />
@@ -1295,7 +1311,6 @@
     <Folder Include="Content\Images\how\" />
     <Folder Include="ImdbData\" />
     <Folder Include="js\views\" />
-    <Folder Include="Scripts\lib\" />
     <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
