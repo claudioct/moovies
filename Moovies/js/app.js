@@ -9,11 +9,11 @@
     app.config(function ($routeProvider) {
         $routeProvider
           .when("/main", {
-              templateUrl: "ngViews/main.html",
+              templateUrl: "/ngViews/main.html",
               controller: "HomeIndexController"
           })
           .when("/result", {
-              templateUrl: "ngViews/result.html",
+              templateUrl: "/ngViews/result.html",
               controller: "HomeResultController"
           })
           .otherwise({
