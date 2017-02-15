@@ -434,8 +434,12 @@
     <Content Include="js\mooviesboard-api.js" />
     <Content Include="js\myapp.js" />
     <Content Include="mstile-150x150.png" />
-    <Content Include="ngViews\main.html" />
-    <Content Include="ngViews\result.html" />
+    <Content Include="ngViews\main.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ngViews\result.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="safari-pinned-tab.svg" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
