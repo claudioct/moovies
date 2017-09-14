@@ -6,6 +6,7 @@
     margin-bottom: 20px;
     position: relative;
     z-index: 1;
+    min-height:320px;
 
     .image{
         width: 100%;
@@ -139,7 +140,7 @@
         min-height: 64px;
     }
     .numbers{
-        font-size: 2em;
+        font-size: 1.6em;
         text-align: right;
         p{
             margin: 0;

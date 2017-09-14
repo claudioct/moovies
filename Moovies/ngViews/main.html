@@ -1,5 +1,8 @@
-﻿<div ngf-drop ngf-select ng-model="files" class="drop-box"
-     ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+﻿<div ngf-drop="upload($files)"
+     ngf-select="upload($files)"
+     ng-model="files" 
+     class="drop-box"
+     ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="true"
      accept=".csv"
      ngf-pattern="'.csv'">
         <img src="../Content/Images/rsz_1rsz_1cow.png" />
@@ -7,3 +10,6 @@
         <h5>Drop (or click here) your IMDb ratings file</h5>
 </div>
 <div ngf-no-file-drop class="text-center">File Drag/Drop is not supported for this browser</div>
+<div>
+    <a href="http://www.imdb.com/" target="_blank" class="btn btn-danger btn-fill pull-right" style="padding:15px; margin:15px; font-weight:600">Get my IMDB ratings.</a>
+</div>

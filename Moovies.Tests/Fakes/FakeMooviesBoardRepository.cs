@@ -20,6 +20,11 @@ namespace Moovies.Tests.Fakes
             return true;
         }
 
+        public bool AddOmdbMovieRecord(OmdbMovieRecord newOmdbMovieRecord)
+        {
+            throw new NotImplementedException();
+        }
+
         public LeaderboardRecord GetLeaderboardRecord(int leaderbordRecordId)
         {
             return new LeaderboardRecord()

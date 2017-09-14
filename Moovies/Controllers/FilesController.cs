@@ -39,24 +39,22 @@ namespace Moovies.Controllers
             }
             try
             {
-                var provider = new CustomMultipartFormDataStreamProvider(workingFolder);
-                //await Request.Content.ReadAsMultipartAsync(provider);
-                await Task.Run(async () => await Request.Content.ReadAsMultipartAsync(provider));
-                                
-                foreach (var file in provider.FileData)
+                var filesReadToProvider = await Request.Content.ReadAsMultipartAsync();
+
+                foreach (var stream in filesReadToProvider.Contents)
                 {
-                    var fileInfo = new FileInfo(file.LocalFileName);
-                    var bytes = File.ReadAllBytes(file.LocalFileName);
+                    var bytes = await stream.ReadAsByteArrayAsync();
 
                     string csv = System.Text.Encoding.UTF8.GetString(bytes);
                     var imdbData = _imdbDataService.Retrieve(csv);
-                    imdbData.TotalImdbRating = Decimal.Round(imdbData.TotalImdbRating, 1);
 
                     _repository.AddLeaderboard(imdbData);
 
 
                     return Ok(imdbData);
                 }
+
+
 
                 return BadRequest();
             }

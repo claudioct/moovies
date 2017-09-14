@@ -27,6 +27,7 @@
     </NuGetPackageImportStamp>
     <ApplicationInsightsResourceId>/subscriptions/68160b8e-dbf3-4da7-b168-18f36b289c38/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/Moovies</ApplicationInsightsResourceId>
     <ApplicationInsightsAnnotationResourceId>/subscriptions/68160b8e-dbf3-4da7-b168-18f36b289c38/resourceGroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/Moovies</ApplicationInsightsAnnotationResourceId>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -91,6 +92,12 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -105,6 +112,10 @@
     </Reference>
     <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -243,13 +254,15 @@
     <Compile Include="Controllers\LeaderboardsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SendController.cs" />
+    <Compile Include="DataContract\FullMovieData.cs" />
     <Compile Include="DataContract\ImdbData.cs" />
     <Compile Include="Data\IMooviesBoardRepository.cs" />
     <Compile Include="Data\LeaderboardResultsView.cs" />
     <Compile Include="Data\LeaderboardRecord.cs" />
     <Compile Include="Data\MooviesBoardContext.cs" />
-    <Compile Include="Data\MooviesBoardMigrationsConfiguration.cs" />
     <Compile Include="Data\MooviesBoardRepository.cs" />
+    <Compile Include="Data\MooviesCache.cs" />
+    <Compile Include="Data\OmdbMovieRecord.cs" />
     <Compile Include="Data\Queries.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -261,6 +274,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\DictionaryHelper.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -270,33 +284,29 @@
     <Compile Include="Services\IImdbDataService.cs" />
     <Compile Include="Services\DataContracts\ImdbCsv.cs" />
     <Compile Include="Services\ImdbDataService.cs" />
+    <Compile Include="Services\OmdbApiService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="android-chrome-192x192.png" />
-    <Content Include="android-chrome-512x512.png" />
-    <Content Include="apple-touch-icon.png" />
+    <Content Include="bower_components\matchHeight\dist\jquery.matchHeight-min.js" />
+    <Content Include="bower_components\matchHeight\dist\jquery.matchHeight.js" />
+    <Content Include="bower_components\matchHeight\gulpfile.js" />
+    <Content Include="bower_components\matchHeight\jquery.matchHeight-min.js" />
+    <Content Include="bower_components\matchHeight\jquery.matchHeight.js" />
     <Content Include="browserconfig.xml" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Images\cow.png" />
+    <Content Include="Content\Images\rsz_1cow.png" />
+    <Content Include="Content\Images\rsz_1rsz_1cow.png" />
+    <Content Include="Content\Images\rsz_cow.png" />
     <Content Include="Content\Paper-Assets\css\animate.min.css" />
     <Content Include="Content\Paper-Assets\css\bootstrap.min.css" />
     <Content Include="Content\Paper-Assets\css\demo.css" />
     <Content Include="Content\Paper-Assets\css\paper-dashboard.css" />
     <Content Include="Content\Paper-Assets\css\themify-icons.css" />
     <Content Include="Content\Paper-Assets\fonts\themify.svg" />
-    <Content Include="Content\Paper-Assets\img\apple-icon.png" />
-    <Content Include="Content\Paper-Assets\img\background.jpg" />
-    <Content Include="Content\Paper-Assets\img\faces\face-0.jpg" />
-    <Content Include="Content\Paper-Assets\img\faces\face-1.jpg" />
-    <Content Include="Content\Paper-Assets\img\faces\face-2.jpg" />
-    <Content Include="Content\Paper-Assets\img\faces\face-3.jpg" />
-    <Content Include="Content\Paper-Assets\img\favicon.png" />
-    <Content Include="Content\Paper-Assets\img\new_logo.png" />
-    <Content Include="Content\Paper-Assets\img\tim_80x80.png" />
     <Content Include="Content\Paper-Assets\js\bootstrap-checkbox-radio.js" />
     <Content Include="Content\Paper-Assets\js\bootstrap-notify.js" />
     <Content Include="Content\Paper-Assets\js\bootstrap.min.js" />
@@ -320,42 +330,22 @@
     <Content Include="Content\Template\font-awesome\css\font-awesome.css" />
     <Content Include="Content\Template\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\Template\font-awesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\Template\fonts\Freeware License %28Journal%29.txt" />
     <Content Include="Content\Template\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\Template\img\404-page-bg.jpg" />
-    <Content Include="Content\Template\img\actors\01.png" />
-    <Content Include="Content\Template\img\actors\02.png" />
-    <Content Include="Content\Template\img\actors\03.png" />
-    <Content Include="Content\Template\img\actors\04.png" />
-    <Content Include="Content\Template\img\blog\01.jpg" />
-    <Content Include="Content\Template\img\blog\02.jpg" />
-    <Content Include="Content\Template\img\blog\03.jpg" />
-    <Content Include="Content\Template\img\contact-bg.jpg" />
-    <Content Include="Content\Template\img\damper-pat.png" />
-    <Content Include="Content\Template\img\field-corner.png" />
-    <Content Include="Content\Template\img\gallery-bg.jpg" />
-    <Content Include="Content\Template\img\gallery\01.jpg" />
-    <Content Include="Content\Template\img\gallery\02.jpg" />
-    <Content Include="Content\Template\img\gallery\03.jpg" />
-    <Content Include="Content\Template\img\gallery\04.jpg" />
-    <Content Include="Content\Template\img\gallery\05.jpg" />
-    <Content Include="Content\Template\img\gallery\06.jpg" />
-    <Content Include="Content\Template\img\gallery\07.jpg" />
-    <Content Include="Content\Template\img\gallery\08.jpg" />
-    <Content Include="Content\Template\img\movie-avatar-bg.png" />
-    <Content Include="Content\Template\img\movie-avatar-disc.png" />
-    <Content Include="Content\Template\img\movie-avatar-img-glare.png" />
-    <Content Include="Content\Template\img\movie-avatar-img.png" />
-    <Content Include="Content\Template\img\movie-player-bg.jpg" />
-    <Content Include="Content\Template\img\movie-player-element.png" />
-    <Content Include="Content\Template\img\overlay-pat.png" />
-    <Content Include="Content\Template\img\video-img.jpg" />
     <EmbeddedResource Include="Data\Query\LeaderboardsView.sql" />
-    <Content Include="favicon-16x16.png" />
-    <Content Include="favicon-32x32.png" />
+    <Content Include="DB\dbMoovies.mdf" />
+    <Content Include="DB\dbMoovies_log.ldf">
+      <DependentUpon>dbMoovies.mdf</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="bower_components\matchHeight\.bower.json" />
+    <Content Include="bower_components\matchHeight\bower.json" />
+    <Content Include="bower_components\matchHeight\CHANGELOG.md" />
+    <Content Include="bower_components\matchHeight\LICENSE" />
+    <Content Include="bower_components\matchHeight\matchHeight.jquery.json" />
+    <Content Include="bower_components\matchHeight\package.json" />
+    <Content Include="bower_components\matchHeight\README.md" />
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
@@ -368,8 +358,6 @@
     <Content Include="Content\Paper-Assets\fonts\themify.eot" />
     <Content Include="Content\Paper-Assets\fonts\themify.ttf" />
     <Content Include="Content\Paper-Assets\fonts\themify.woff" />
-    <Content Include="Content\Paper-Assets\img\.DS_Store" />
-    <Content Include="Content\Paper-Assets\img\faces\.DS_Store" />
     <Content Include="Content\Paper-Assets\js\.DS_Store" />
     <Content Include="Content\Paper-Assets\sass\.DS_Store" />
     <Content Include="Content\Paper-Assets\sass\paper-dashboard.scss" />
@@ -412,7 +400,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\Template\img\blog\desktop.ini" />
     <Content Include="Content\Template\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\Template\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Template\fonts\glyphicons-halflings-regular.woff" />
@@ -433,7 +420,6 @@
     <Content Include="js\home-index-controller.js" />
     <Content Include="js\mooviesboard-api.js" />
     <Content Include="js\myapp.js" />
-    <Content Include="mstile-150x150.png" />
     <Content Include="ngViews\main.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -485,6 +471,8 @@
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular-moment.min.js.map" />
     <Content Include="manifest.json" />
+    <None Include="Properties\PublishProfiles\MooviesBoard - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\MooviesBoardApp - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1244,7 +1232,6 @@
     <Content Include="Scripts\lib\magnific-popup\jquery.magnific-popup.min.js" />
     <Content Include="Scripts\lib\magnific-popup\magnific-popup.css" />
     <Content Include="Scripts\lib\owl-carousel\AjaxLoader.gif" />
-    <Content Include="Scripts\lib\owl-carousel\grabbing.png" />
     <Content Include="Scripts\lib\owl-carousel\owl.carousel.css" />
     <Content Include="Scripts\lib\owl-carousel\owl.carousel.js" />
     <Content Include="Scripts\lib\owl-carousel\owl.carousel.min.js" />
@@ -1269,7 +1256,9 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1308,10 +1297,10 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Send\Result.cshtml" />
     <Content Include="Views\Send\IndexAngular.cshtml" />
+    <Content Include="teste.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\how\" />
     <Folder Include="ImdbData\" />
     <Folder Include="js\views\" />
     <Folder Include="Uploads\" />

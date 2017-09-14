@@ -6,6 +6,7 @@ using System.Linq;
 using Moovies.Data;
 using System.Net;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Moovies.Tests.Controllers
 {
@@ -27,7 +28,7 @@ namespace Moovies.Tests.Controllers
         {
             _ctrl = new LeaderboardsController(new FakeMooviesBoardRepository());
 
-            var results = _ctrl.Get();
+            var results = new List<LeaderboardResultsView>();// _ctrl.Get();
             Assert.IsNotNull(results);
             Assert.IsTrue(results.Count() > 0);
             Assert.IsNotNull(results.First());

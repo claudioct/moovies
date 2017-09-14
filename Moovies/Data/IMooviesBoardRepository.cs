@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Moovies.DataContract;
 
 namespace Moovies.Data
@@ -16,6 +13,8 @@ namespace Moovies.Data
         List<LeaderboardResultsView> GetLeaderboardView();
 
         bool AddLeaderboard(LeaderboardRecord newLeaderbordRecord);
+
+        bool AddOmdbMovieRecord(OmdbMovieRecord newOmdbMovieRecord);
 
         bool Save();
         bool AddLeaderboard(ImdbData imdbData);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Moovies.DataContract;
+using System.Threading.Tasks;
 
 namespace Moovies.Data
 {
@@ -41,6 +42,35 @@ namespace Moovies.Data
             }
         }
 
+        public bool AddOmdbMovieRecord(OmdbMovieRecord newOmdbMovieRecord)
+        {
+            try
+            {
+                _ctx.OmdbMovieRecords.Add(newOmdbMovieRecord);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //TODO log this error
+                return false;
+            }
+        }
+
+        public OmdbMovieRecord GetOmdbMovieRecord(string imdbId)
+        {
+            if (MooviesCache.IsEmpty)
+            {
+                Task.Run(() => { MooviesCache.Retrieve(); });                
+                return _ctx.OmdbMovieRecords.Where(l => l.ImdbID == imdbId).FirstOrDefault();                
+            }
+            else
+            {
+                return MooviesCache.MoviceCache.Where(l => l.ImdbID == imdbId).FirstOrDefault();
+            }
+        }
+
+
+
         public LeaderboardRecord GetLeaderboardRecord(int leaderbordRecordId)
         {
             return _ctx.LeaderboardRecords.Where(l => l.Id == leaderbordRecordId).FirstOrDefault();
@@ -67,7 +97,7 @@ namespace Moovies.Data
                     Created = DateTime.UtcNow,
                     FavoriteActor = "",
                     FavoriteActress = "",
-                    FavoriteGenre = imdbData.FavoriteGenre,
+                    FavoriteGenre = imdbData.FavoriteGenre.Key,
                     TotalAwards = 0,
                     TotalTime = imdbData.TotalTime,
                     UserId = Guid.Empty.ToString(),
@@ -84,5 +114,7 @@ namespace Moovies.Data
                 return false;
             }
         }
+
+
     }
 }

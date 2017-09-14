@@ -181,8 +181,6 @@ iframe {
 	left: 0;
 	right: 0;
 
-	background: rgba(0,0,0,0.6) url(../img/overlay-pat.png);
-		
 }
 
 input::-moz-focus-inner { 
@@ -762,7 +760,6 @@ body {
 	top:0;
 	bottom:0;
 	z-index: 50;
-	background: rgba(0,0,0,0.4) url(../img/overlay-pat.png);;
 }
 
 .container-wrapper {
@@ -2148,8 +2145,7 @@ h1.section-title:after{
 -----------------------------------------------------------*/
 
 #contact {
-	padding: 70px 0px 0px 0px;
-	background: url(../img/contact-bg.jpg) center center no-repeat;
+	padding: 70px 0px 0px 0px;	
 	background-size: cover;
 	position:relative;
 }

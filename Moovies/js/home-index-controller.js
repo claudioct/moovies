@@ -3,14 +3,16 @@
 
     var HomeIndexController = function ($scope, $log, $location, $timeout, mooviesBoardApi, Upload, Result) {
         
-        $scope.$watch('files', function () {
-            $scope.upload($scope.files);
-        });
-        $scope.$watch('file', function () {
-            if ($scope.file !== null) {
-                $scope.files = [$scope.file];
-            }
-        });
+        //$scope.$watch('files', function () {
+        //    $scope.upload($scope.files);
+        //});
+        //$scope.$watch('file', function () {
+        //    if ($scope.file !== null) {
+        //        $scope.files = [$scope.file];
+        //    }
+        //});
+
+        //$log.debug("Here");
 
         $scope.leaderboards = [];
         $scope.isBusy = true;
@@ -29,8 +31,13 @@
                 $scope.isBusy = false;
             });
 
+        $scope.onFileSelect = function ($files) {
+                $log.debug("Here");
+        }
+
         // upload on file select or drop
         $scope.upload = function (files) {
+            $log.debug("veio");
             if (files && files.length) {
                 for (var i = 0; i < files.length; i++) {
                     var file = files[i];

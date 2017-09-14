@@ -1,15 +1,16 @@
 ﻿<div class="result-wrapper">
     <div class="row">
-        <div class="col-lg-3 col-sm-6">
+        <!-- Time Spent -->
+        <div class="col-md-4 col-sm-6 col-xs-12 row-eq-height">
             <div class="card">
                 <div class="content">
                     <div class="row">
-                        <div class="col-xs-5">
+                        <div class="col-xs-2">
                             <div class="icon-big icon-warning text-center">
                                 <i class="ti-timer"></i>
                             </div>
                         </div>
-                        <div class="col-xs-7">
+                        <div class="col-xs-10">
                             <div class="numbers">
                                 <p>Time spent</p>
                                 {{ imdbData.totalTime | amDurationFormat : 'minute'  }}
@@ -25,41 +26,18 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
+    
+        <!-- Average Imdb Score-->
+        <div class="col-md-4 col-sm-6 col-xs-12 row-eq-height">
             <div class="card">
                 <div class="content">
                     <div class="row">
-                        <div class="col-xs-5">
-                            <div class="icon-big icon-success text-center">
-                                <i class="ti-video-camera"></i>
-                            </div>
-                        </div>
-                        <div class="col-xs-7">
-                            <div class="numbers">
-                                <p>Favorite Director</p>
-                                {{ imdbData.favoriteDirector  }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <hr>
-                        <div class="stats">
-                            If you consider it's wrong, consider watching more movies of your favorite director.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="card">
-                <div class="content">
-                    <div class="row">
-                        <div class="col-xs-5">
+                        <div class="col-xs-2">
                             <div class="icon-big icon-danger text-center">
                                 <i class="ti-bookmark"></i>
                             </div>
                         </div>
-                        <div class="col-xs-7">
+                        <div class="col-xs-10">
                             <div class="numbers">
                                 <p>Average IMDb Score</p>
                                 {{ imdbData.totalImdbRating  }}
@@ -75,16 +53,18 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
+
+        <!-- Average rating given -->
+        <div class="col-md-4 col-sm-6 col-xs-12 row-eq-height">
             <div class="card">
                 <div class="content">
                     <div class="row">
-                        <div class="col-xs-5">
+                        <div class="col-xs-2">
                             <div class="icon-big icon-info text-center">
                                 <i class="ti-pencil"></i>
                             </div>
                         </div>
-                        <div class="col-xs-7">
+                        <div class="col-xs-10">
                             <div class="numbers">
                                 <p>Average rating given</p>
                                 {{ imdbData.totalUserRating  }}
@@ -100,19 +80,22 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
+
+        <!-- Favorite Genre-->
+        <div class="col-md-4 col-sm-6 col-xs-12 row-eq-height">
             <div class="card">
                 <div class="content">
                     <div class="row">
-                        <div class="col-xs-5">
-                            <div class="icon-big icon-warning text-center"> 
+                        <div class="col-xs-2">
+                            <div class="icon-big icon-warning text-center">
                                 <i class="ti-direction-alt"></i>
                             </div>
                         </div>
-                        <div class="col-xs-7">
+                        <div class="col-xs-10">
                             <div class="numbers">
                                 <p>Favorite genre</p>
-                                {{ imdbData.favoriteGenre  }}
+                                {{ imdbData.favoriteGenre.key  }}  
+                                <p><span class="label label-danger">{{imdbData.favoriteGenre.value}} movies watched </span></p>
                             </div>
                         </div>
                     </div>
@@ -125,5 +108,150 @@
                 </div>
             </div>
         </div>
+
+        <!-- Favorite Director-->
+        <div class="col-md-4 col-sm-6 col-xs-12 row-eq-height">
+            <div class="card">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div class="icon-big icon-success text-center">
+                                <i class="ti-video-camera"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-10">
+                            <div class="numbers">
+                                <p>Favorite director</p>
+                                {{ imdbData.favoriteDirector.key  }}
+                                <br />
+                                <p><span class="label label-danger">{{imdbData.favoriteDirector.value}} movies watched </span></p>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <hr>
+                        <div class="stats">
+                            how about watch more your favorite director movie's.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Favorite Actor-->
+        <div class="col-md-4 col-sm-6 col-xs-12 row-eq-height">
+            <div class="card">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div class="icon-big icon-success text-center">
+                                <i class="ti-user"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-10">
+                            <div class="numbers">
+                                <p>Favorite movie star</p>
+                                {{ imdbData.favoriteActorActress.key  }} 
+                                <p><span class="label label-danger">{{imdbData.favoriteActorActress.value}} movies watched </span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <hr>
+                        <div class="stats">
+                            So pretty huh?
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Favorite Country-->
+        <div class="col-md-4 col-sm-6 col-xs-12 row-eq-height">
+            <div class="card">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div class="icon-big icon-danger text-center">
+                                <i class="ti-flag-alt-2"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-10">
+                            <div class="numbers">
+                                <p>Favorite country</p>
+                                {{ imdbData.favoriteCountry.key  }}
+                                <p><span class="label label-danger">{{imdbData.favoriteCountry.value}} movies watched </span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <hr>
+                        <div class="stats">
+                            You should try bollywood.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Favorite Language-->
+        <div class="col-md-4 col-sm-6 col-xs-12 row-eq-height">
+            <div class="card">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div class="icon-big icon-info text-center">
+                                <i class="ti-world"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-10">
+                            <div class="numbers">
+                                <p>Favorite language</p>
+                                {{ imdbData.favoriteLanguage.key  }} 
+                                <p><span class="label label-danger">{{imdbData.favoriteLanguage.value}} movies watched </span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <hr>
+                        <div class="stats">
+                            You should try Russian cinema either.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Favorite Writer -->
+        <div class="col-md-4 col-sm-6 col-xs-12 row-eq-height">
+            <div class="card">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div class="icon-big icon-info text-center">
+                                <i class="ti-write"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-10">
+                            <div class="numbers">
+                                <p>Favorite writer</p>
+                                {{ imdbData.favoriteWriter.key  }}  
+                                <p><span class="label label-danger">{{imdbData.favoriteWriter.value}} movies watched </span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <hr>
+                        <div class="stats">
+                            You wouldn't have guessed, right?
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<script>
+
+</script>
